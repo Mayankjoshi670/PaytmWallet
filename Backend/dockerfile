@@ -1,0 +1,27 @@
+FROM node:16-alpine
+
+WORKDIR /app
+
+copy . .
+# firt dot means copy every thing from sorce folder includeing node modules 
+# into working directior that is /app 
+
+RUN npm install 
+
+EXPOSE 3000
+# all the above this run when you create the image 
+#  from the CMD all below includeing cmd run when you start the image/container   
+CMD ["node" , "index.js"]
+
+
+# to run 
+# docker build -t name as your choice . 
+# docker run -p 300:3000 paytm-backend
+
+
+
+
+#  if you want to explore the container or sneek in into the container you can use exec command 
+#  here it goes 
+
+#  docker exec -it container id /bin/bash
